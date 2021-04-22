@@ -23,6 +23,9 @@ class Hole:
     def __str__(self):
         return str([str(stone) for stone in self.stones])
 
+    def count(self):
+        return len(self.stones)
+
 
 class Mancala(Hole):
     def __init__(self, stones, player):
