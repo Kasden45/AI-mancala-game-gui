@@ -17,24 +17,31 @@ def minmax(node, depth, alfa, beta, evaluation, end_game, root_player_id, is_max
     :return:
     """
     if depth == 0 or end_game(node) == True:
-        return evaluation(node)
+        node.value = evaluation(node, root_player_id)
+        return node.value
 
     if is_max:
         value = -math.inf
+        max_value = -math.inf
         for child in node.children:
             value = max(value, minmax(child, depth - 1, alfa, beta, evaluation, end_game, root_player_id, root_player_id == child.player_id, is_alfa_beta))
+            max_value = max(max_value, value)
             if is_alfa_beta:
                 alfa = max(alfa, value)
                 if alfa >= beta:
                     break
+        node.value = max_value
         return value
 
     else:
         value = math.inf
+        min_value = math.inf
         for child in node.children:
             value = min(value, minmax(child, depth - 1, alfa, beta, evaluation, end_game, root_player_id, root_player_id == child.player_id, is_alfa_beta))
+            min_value = min(min_value, value)
             if is_alfa_beta:
                 beta = min(beta, value)
                 if alfa >= beta:
                     break
+        node.value = min_value
         return value

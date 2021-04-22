@@ -2,6 +2,8 @@ from copy import deepcopy
 
 from Components import Mancala
 from MinMax import minmax
+import pickle
+
 
 class GameNode:
     def __init__(self, game, number, player_id):
@@ -9,6 +11,7 @@ class GameNode:
         self.player_id = player_id
         self.game_state = game
         self.children = []  # number : node
+        self.value = 0
 
     def add_child(self, child_node):
         self.children.append(child_node)
@@ -23,13 +26,17 @@ def is_finished(game_node):
                 hole.player.id == game.turn and not isinstance(hole, Mancala) and len(hole.stones) > 0]) == 0
 
 
-def mancala_function(node: GameNode):
+def mancala_function(node: GameNode, player_id):
     game = node.game_state
-    return game.get_points(node.player_id) - game.get_points(game.get_opponent_id(node.player_id))
+    #print("From ",player_id)
+    #game.print_game_state()
+    score = game.get_points(player_id) - game.get_points(game.get_opponent_id(player_id))
+    #print("Score", score)
+    return score
 
 
 def pprint_tree(node, file=None, _prefix="", _last=True):
-    print(_prefix, "`- " if _last else "|- ", f"{node.number} -> next:{node.player_id} ", sep="", file=file)
+    print(_prefix, "`- " if _last else "|- ", f"{node.number}:{node.value} -> next:{node.player_id} ", sep="", file=file)
     _prefix += "   " if _last else "|  "
     child_count = len(node.children)
     for i, child in enumerate(node.children):
@@ -40,10 +47,11 @@ def pprint_tree(node, file=None, _prefix="", _last=True):
 def make_decision_tree(node: GameNode, depth):
     if depth == 0:
         return
-    print("Number", node.number, "Depth:", depth, "Turn:", node.game_state.turn)
+    #print("Number", node.number, "Depth:", depth, "Turn:", node.game_state.turn)
     for choice in node.game_state.get_possible_moves(node.player_id):
-        new_game_state = deepcopy(node.game_state)
-        flag = new_game_state.move(node.player_id, choice)
+        new_game_state = pickle.loads(pickle.dumps(node.game_state))
+        # deepcopy(node.game_state)
+        new_game_state.move(node.player_id, choice)
         if not new_game_state.additional_move:
             new_game_state.change_turn()
         new_game_state.additional_move = False

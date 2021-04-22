@@ -1,4 +1,5 @@
 import math
+import pprint
 import random
 from copy import copy
 from typing import List, Tuple
@@ -26,6 +27,7 @@ class Game:
 
         self.additional_move = False
         self.total_holes = 14
+        self.moves_table = []  # (id, move)
 
     def get_possible_moves(self, player_id):  # Should be used in move(), can check instance instead of number
         return list([hole.number for _, hole in self.holes.items() if hole.player.id == player_id and len(hole.stones) > 0 and hole.number != 7])
@@ -88,6 +90,8 @@ class Game:
         if hole is None or len(hole.stones) == 0:
             return False
 
+        self.moves_table.append({"P": player_id, "H": hole_number})
+
         stones = copy(hole.stones)
         hole.stones.clear()
         while len(stones) != 0:
@@ -126,11 +130,15 @@ class Game:
             name1 = input("Please type your name: ")
             player1.name = name1
             print(f"Hi, {name1}!")
+            type1 = input(f"Are you a human, {name1}?: 'YES'/'NO'")
+            player1.type = "Human" if type1 == "YES" else "AI"
 
             print("2nd player!")
             name2 = input("Please type your name: ")
             player2.name = name2
             print(f"Hi, {name2}!")
+            type2 = input(f"Are you a human, {name2}?: 'YES'/'NO'")
+            player2.type = "Human" if type2 == "YES" else "AI"
 
         print("Players created!")
         return player1, player2
@@ -168,7 +176,7 @@ class Game:
         for player_id, player in self.players.items():
             mancala = self.get_mancala(player_id)
             for hole in self.holes.values():
-                if hole.player.id == player_id:
+                if hole.player.id == player_id and not isinstance(hole, Mancala):
                     mancala.stones.extend(hole.stones)
                     hole.stones.clear()
 
@@ -182,7 +190,8 @@ class Game:
         players = self.get_players(2)
         self.initialize_game(players)
         self.set_turn(0)
-
+        next_best_move = 0
+        DEPTH = 4
         # Game itself
         while not self.is_finished():
             self.print_game_state()
@@ -190,32 +199,49 @@ class Game:
             self.calculate_result()
 
             move_done = False
-
+            hole_number = next_best_move
             while not move_done:
-                hole_number = self.get_player_move()
-                while hole_number == 0:
-                    print("Enter correct number!")
+                if self.players[self.turn].type == "Human":
                     hole_number = self.get_player_move()
+                    print(f"{self.players[self.turn].name} chose hole no.{hole_number}!")
+                    while hole_number == 0:
+                        print("Enter correct number!")
+                        hole_number = self.get_player_move()
 
-                move_done = self.move(self.turn, hole_number)
-                if not move_done:
-                    print("Illegal move!")
+                    move_done = self.move(self.turn, hole_number)
+                    if not move_done:
+                        print("Illegal move!")
+                elif self.players[self.turn].type == "AI":
+                    if hole_number != 0:
+                        move_done = self.move(self.turn, hole_number)
+                        print(f"{self.players[self.turn].name} chose hole no.{hole_number}!")
+                    else:
+                        print("Random")
+                        hole_number = random.choice(list(self.get_possible_moves(self.turn)))
+                        move_done = self.move(self.turn, hole_number)
+                        print(f"{self.players[self.turn].name} chose hole no.{hole_number}!")
+
+                    print("AI MOVED")
             print("MOVE DONE")
             if not self.additional_move:
                 self.change_turn()
             self.additional_move = False
 
-            node = GameNode(self, hole_number, self.turn)
-            make_decision_tree(node, 2)
+            root = GameNode(self, hole_number, self.turn)
+            make_decision_tree(root, DEPTH)
 
-            print("Tree made")
-            pprint_tree(node)
-
-            result = MinMax.minmax(node, 2, -math.inf, math.inf, mancala_function, is_finished, node.player_id)
-
-            print("Print minmax:", result)
+            MinMax.minmax(root, DEPTH, -math.inf, math.inf, mancala_function, is_finished, root.player_id)
+            if len(root.children) > 0:
+                for child in root.children:
+                    print("v:", child.number, child.value)
+                next_best_move = max(root.children, key=lambda n: n.value).number
+                #next_best_move = sorted(root.children, key=lambda n: n.value, reverse=True)[0].number
+                print("Next best move:", next_best_move)
+            #pprint_tree(root)
 
         # Game finished
         self.finish_game()
         self.print_game_state()
         self.calculate_result()
+        print("All moves:")
+        pprint.pprint(self.moves_table)
