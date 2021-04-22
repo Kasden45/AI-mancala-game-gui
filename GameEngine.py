@@ -1,7 +1,10 @@
+import math
 import random
 from copy import copy
 from typing import List, Tuple
 
+import MinMax
+from GameNode import GameNode,make_decision_tree, pprint_tree, mancala_function, is_finished
 from Player import Player
 from Components import Stone, Hole, Mancala
 from itertools import cycle
@@ -23,6 +26,9 @@ class Game:
 
         self.additional_move = False
         self.total_holes = 14
+
+    def get_possible_moves(self, player_id):  # Should be used in move(), can check instance instead of number
+        return list([hole.number for _, hole in self.holes.items() if hole.player.id == player_id and len(hole.stones) > 0 and hole.number != 7])
 
     def get_mancala(self, player_id):
         for hole in self.holes.values():
@@ -65,6 +71,12 @@ class Game:
                 self.holes[self.global_hole_number(hole)] = hole
             self.holes[self.holes_in_row + 1 + (self.holes_in_row + 1) * player.id] = Mancala([], player)
         self.total_holes = 2 * (self.holes_in_row + 1)
+
+    def get_opponent_id(self, player_id):
+        return [k for k in self.players.keys() if k != player_id][0]
+
+    def get_points(self, player_id):
+        return len(self.get_mancala(player_id).stones)
 
     def move(self, player_id, hole_number):
         hole = None
@@ -175,8 +187,6 @@ class Game:
         while not self.is_finished():
             self.print_game_state()
 
-            print(self.holes)
-
             self.calculate_result()
 
             move_done = False
@@ -190,10 +200,21 @@ class Game:
                 move_done = self.move(self.turn, hole_number)
                 if not move_done:
                     print("Illegal move!")
+            print("MOVE DONE")
             if not self.additional_move:
                 self.change_turn()
-
             self.additional_move = False
+
+            node = GameNode(self, hole_number, self.turn)
+            make_decision_tree(node, 2)
+
+            print("Tree made")
+            pprint_tree(node)
+
+            result = MinMax.minmax(node, 2, -math.inf, math.inf, mancala_function, is_finished, node.player_id)
+
+            print("Print minmax:", result)
+
         # Game finished
         self.finish_game()
         self.print_game_state()
