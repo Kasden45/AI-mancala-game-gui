@@ -101,9 +101,9 @@ class Game:
             was_empty = len(hole.stones) == 0
             hole.add_stone(stone)
             if len(stones) == 0:  # Last stone placed
-                if was_empty and hole.player.id == player_id and not isinstance(hole, Mancala):
+                if was_empty and hole.player.id == player_id and not isinstance(hole, Mancala):  # Steal opportunity
                     opposite_hole = self.get_opposite_hole(hole)
-                    if len(opposite_hole.stones) > 0:
+                    if len(opposite_hole.stones) > 0:  # Steal
                         self.steal_stones(hole, opposite_hole, player_id)
                 elif hole == self.get_mancala(player_id):
                     self.additional_move = True
@@ -130,16 +130,19 @@ class Game:
             name1 = input("Please type your name: ")
             player1.name = name1
             print(f"Hi, {name1}!")
-            type1 = input(f"Are you a human, {name1}?: 'YES'/'NO'")
+            type1 = input(f"Are you a human, {name1}?: 'YES'/'NO' ->")
             player1.type = "Human" if type1 == "YES" else "AI"
+            if player1.type == "AI":
+                player1.name += " (AI)"
 
             print("2nd player!")
             name2 = input("Please type your name: ")
             player2.name = name2
             print(f"Hi, {name2}!")
-            type2 = input(f"Are you a human, {name2}?: 'YES'/'NO'")
+            type2 = input(f"Are you a human, {name2}?: 'YES'/'NO' ->")
             player2.type = "Human" if type2 == "YES" else "AI"
-
+            if player2.type == "AI":
+                player2.name += " (AI)"
         print("Players created!")
         return player1, player2
 
@@ -149,28 +152,55 @@ class Game:
     def get_player_move(self):
         player_on_turn = self.players[self.turn]
         print(f"{player_on_turn.name}'s move!")
-        hole = int(input("I choose hole number:"))
+        hole = int(input("I pick hole number:"))
         if hole in range(2 * (self.holes_in_row + 1)):
             return hole
         else:
             return 0
 
     def calculate_result(self):
+        print("Leaderboard")
         for player_id, player in self.players.items():
             player.points = len(self.get_mancala(player_id).stones)
             print(player)
 
-    def print_game_state(self):
-        for hole_num, hole in sorted(
-                [(hole_num, hole) for (hole_num, hole) in self.holes.items() if hole_num in range(8, 15)],
-                key=lambda h: h[0], reverse=True):
-            print(f"{hole_num}: {hole}", end=" -- ")
-        print()
-        for hole_num, hole in sorted(
-                [(hole_num, hole) for (hole_num, hole) in self.holes.items() if hole_num in range(1, 8)],
-                key=lambda h: h[0], reverse=False):
-            print(f"{hole_num}: {hole}", end=" -- ")
-        print()
+    def print_game_state(self, mode="colors"):
+        if mode == "colors":
+            for hole_num, hole in sorted(
+                    [(hole_num, hole) for (hole_num, hole) in self.holes.items() if hole_num in range(8, 15)],
+                    key=lambda h: h[0], reverse=True):
+                print(f"{hole_num}: {hole}", end=" -- ")
+            print()
+            for hole_num, hole in sorted(
+                    [(hole_num, hole) for (hole_num, hole) in self.holes.items() if hole_num in range(1, 8)],
+                    key=lambda h: h[0], reverse=False):
+                print(f"{hole_num}: {hole}", end=" -- ")
+        elif mode == "numbers":  # 23
+            print("\n{:^52}\n".format(f"{self.players[1].name}: {self.get_points(1)}"))
+            print("", end="    ")
+            print(" M ".format(), end="    ")
+            for hole_num in range(6, 0, -1):
+                print(" {} ".format(hole_num), end="    ")
+
+            print()
+            print("", end=" <- ")
+            for hole_num, hole in sorted(
+                    [(hole_num, hole) for (hole_num, hole) in self.holes.items() if hole_num in range(8, 15)],
+                    key=lambda h: h[0], reverse=True):
+                print("{}".format(f"({hole.count()})"), end=" <- ")
+            print()
+            print("", end=" -> ")
+            for hole_num, hole in sorted(
+                    [(hole_num, hole) for (hole_num, hole) in self.holes.items() if hole_num in range(1, 8)],
+                    key=lambda h: h[0], reverse=False):
+                print("{}".format(f"({hole.count()})"), end=" -> ")
+            print()
+            print("", end="    ")
+            for hole_num in range(1, 7):
+                print(" {} ".format(hole_num), end="    ")
+            print(" M ".format(), end="    ")
+            print()
+            print("\n{:^52}\n".format(f"{self.players[0].name}: {self.get_points(0)}"))
 
     def finish_game(self):
         for player_id, player in self.players.items():
@@ -194,7 +224,7 @@ class Game:
         DEPTH = 4
         # Game itself
         while not self.is_finished():
-            self.print_game_state()
+            self.print_game_state("numbers")
 
             self.calculate_result()
 
@@ -203,7 +233,7 @@ class Game:
             while not move_done:
                 if self.players[self.turn].type == "Human":
                     hole_number = self.get_player_move()
-                    print(f"{self.players[self.turn].name} chose hole no.{hole_number}!")
+                    print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
                     while hole_number == 0:
                         print("Enter correct number!")
                         hole_number = self.get_player_move()
@@ -214,14 +244,13 @@ class Game:
                 elif self.players[self.turn].type == "AI":
                     if hole_number != 0:
                         move_done = self.move(self.turn, hole_number)
-                        print(f"{self.players[self.turn].name} chose hole no.{hole_number}!")
+                        print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
                     else:
-                        print("Random")
+                        print("Random AI move")
                         hole_number = random.choice(list(self.get_possible_moves(self.turn)))
                         move_done = self.move(self.turn, hole_number)
-                        print(f"{self.players[self.turn].name} chose hole no.{hole_number}!")
+                        print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
 
-                    print("AI MOVED")
             print("MOVE DONE")
             if not self.additional_move:
                 self.change_turn()
