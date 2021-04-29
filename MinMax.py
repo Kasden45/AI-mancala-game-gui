@@ -1,11 +1,11 @@
 import math
 
 
-def minmax(node, depth, alfa, beta, evaluation, end_game, root_player_id, is_max=True, is_alfa_beta=True):
+def minmax(node, depth, alfa, beta, evaluation, end_game, maxing_player_id, is_max=True, is_alfa_beta=True):
     """
     (* Initial call *)
     minmax(root, depth, −inf, +inf, evaluation, end_game, True)
-    :param root_player_id: starting player id
+    :param maxing_player_id: starting player id
     :param node: current node (root at the beginning)
     :param depth: remaining depth
     :param alfa: alfa value
@@ -16,15 +16,15 @@ def minmax(node, depth, alfa, beta, evaluation, end_game, root_player_id, is_max
     :param is_alfa_beta:
     :return:
     """
-    if depth == 0 or end_game(node) == True:
-        node.value = evaluation(node, root_player_id)
+    if depth == 0 or end_game(node) == True or len(node.children) == 0:
+        node.value = evaluation(node, maxing_player_id)
         return node.value
 
     if is_max:
         value = -math.inf
         max_value = -math.inf
         for child in node.children:
-            value = max(value, minmax(child, depth - 1, alfa, beta, evaluation, end_game, root_player_id, root_player_id == child.player_id, is_alfa_beta))
+            value = max(value, minmax(child, depth - 1 if node.game_state.turn != child.game_state.turn else depth, alfa, beta, evaluation, end_game, maxing_player_id, maxing_player_id == child.player_id, is_alfa_beta))
             max_value = max(max_value, value)
             if is_alfa_beta:
                 alfa = max(alfa, value)
@@ -37,7 +37,7 @@ def minmax(node, depth, alfa, beta, evaluation, end_game, root_player_id, is_max
         value = math.inf
         min_value = math.inf
         for child in node.children:
-            value = min(value, minmax(child, depth - 1, alfa, beta, evaluation, end_game, root_player_id, root_player_id == child.player_id, is_alfa_beta))
+            value = min(value, minmax(child, depth - 1 if node.game_state.turn != child.game_state.turn else depth, alfa, beta, evaluation, end_game, maxing_player_id, maxing_player_id == child.player_id, is_alfa_beta))
             min_value = min(min_value, value)
             if is_alfa_beta:
                 beta = min(beta, value)
