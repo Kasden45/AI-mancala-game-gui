@@ -11,7 +11,7 @@ class GameNode:
         self.player_id = player_id
         self.game_state = game
         self.children = []  # number : node
-        self.value = 0
+        self.value = "None"
 
     def add_child(self, child_node):
         self.children.append(child_node)
@@ -36,7 +36,7 @@ def mancala_function(node: GameNode, player_id):
 
 
 def pprint_tree(node, file=None, _prefix="", _last=True):
-    print(_prefix, "`- " if _last else "|- ", f"{node.number}:{node.value} -> next:{node.player_id} ", sep="", file=file)
+    print(_prefix, "`- " if _last else "|- ", f"{node.number}:{node.value} -> next:{node.player_id}", sep="", file=file)
     _prefix += "   " if _last else "|  "
     child_count = len(node.children)
     for i, child in enumerate(node.children):
@@ -55,6 +55,8 @@ def make_decision_tree(node: GameNode, depth):
         if not new_game_state.additional_move:
             new_game_state.change_turn()
         new_game_state.additional_move = False
+        if new_game_state.is_finished():
+            new_game_state.finish_game()
         child = GameNode(new_game_state, choice, new_game_state.turn)
         node.add_child(child)
         make_decision_tree(child, depth - 1 if node.game_state.turn != new_game_state.turn else depth)
