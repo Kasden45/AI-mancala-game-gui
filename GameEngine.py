@@ -3,6 +3,7 @@ import pprint
 import random
 from copy import copy
 from typing import List, Tuple
+import time
 
 import MinMax
 from GameNode import GameNode,make_decision_tree, pprint_tree, mancala_function, is_finished
@@ -124,27 +125,44 @@ class Game:
         else:
             return player_id
 
-    def get_players(self, how_many=2):
+    def get_players(self, how_many=2, first_bot="minmax", second_bot="minmax", testing=False):
         player1 = Player(0)
         player2 = Player(1)
         if how_many == 2:
-            print("1st player!")
-            name1 = input("Please type your name: ")
-            player1.name = name1
-            print(f"Hi, {name1}!")
-            type1 = input(f"Are you a human, {name1}?: 'YES'/'NO' ->")
-            player1.type = "Human" if type1 == "YES" else "AI"
-            if player1.type == "AI":
+            if not testing:
+                print("1st player!")
+                name1 = input("Please type your name: ")
+                player1.name = name1
+                print(f"Hi, {name1}!")
+                type1 = input(f"Are you a human, {name1}?: 'YES'/'NO' ->")
+                player1.type = "Human" if type1 == "YES" else "AI"
+                if player1.type == "AI":
+                    player1.name += " (AI)"
+                    player2.AI_mode = first_bot
+                    player1.AI_mode = first_bot
+
+                print("2nd player!")
+                name2 = input("Please type your name: ")
+                player2.name = name2
+                print(f"Hi, {name2}!")
+                type2 = input(f"Are you a human, {name2}?: 'YES'/'NO' ->")
+                player2.type = "Human" if type2 == "YES" else "AI"
+                if player2.type == "AI":
+                    player2.name += " (AI)"
+                    player2.AI_mode = second_bot
+                    player1.AI_mode = second_bot
+            if testing:
+                player1.name = "First"
+                player1.type = "AI"
+                player1.AI_mode = first_bot
                 player1.name += " (AI)"
 
-            print("2nd player!")
-            name2 = input("Please type your name: ")
-            player2.name = name2
-            print(f"Hi, {name2}!")
-            type2 = input(f"Are you a human, {name2}?: 'YES'/'NO' ->")
-            player2.type = "Human" if type2 == "YES" else "AI"
-            if player2.type == "AI":
+                player2.name = "Second"
+                player2.type = "AI"
+                player2.AI_mode = second_bot
                 player2.name += " (AI)"
+                print("TESTING")
+
         print("Players created!")
         return player1, player2
 
@@ -230,13 +248,24 @@ class Game:
         return len([True for hole in self.holes.values() if
                     hole.player.id == self.turn and not isinstance(hole, Mancala) and len(hole.stones) > 0]) == 0
 
-    def start_game(self):
-        players = self.get_players(2)
+    def start_game(self, testing=False, first_move=0, ai_depth_level=2, mode=None):
+        if mode is None:
+            first_bot_mode = "minmax"
+            second_bot_mode = "minmax"
+        else:
+            first_bot_mode = mode
+            second_bot_mode = mode
+        if testing:
+            players = self.get_players(2, first_bot=first_bot_mode, second_bot=second_bot_mode, testing=testing)
+        else:
+            players = self.get_players(2)
         self.initialize_game(players)
         self.set_turn(0)
-        next_best_move = 2  # If 0 then first move is random if done by AI
-        ai_depth = 2
+        next_best_move = first_move  # If 0 then first move is random if done by AI
+        ai_depth = ai_depth_level
+        next_best_node = None
         # Game start
+
         while not self.is_finished():
             # Print board
             self.print_game_state("numbers")
@@ -258,43 +287,76 @@ class Game:
             elif self.players[self.turn].type == "AI":
                 if hole_number != 0:
                     self.move(self.turn, hole_number)
-                    print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
+                    if not testing:
+                        print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
                 else:  # If first move then random
-                    print("Random AI move")
+                    if not testing:
+                        print("Random AI move")
                     hole_number = random.choice(list(self.get_possible_moves(self.turn)))
                     self.move(self.turn, hole_number)
-                    print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
+                    if not testing:
+                        print(f"{self.players[self.turn].name} picked hole no.{hole_number}!")
 
             if not self.additional_move:
                 self.change_turn()
             self.additional_move = False
-
+            # # Beginning of computing
+            # start_time = time.perf_counter()
             #  Create decision tree
-            root = GameNode(self, hole_number, self.turn)
+            if next_best_node is None:
+                root = GameNode(self, hole_number, self.turn)
+            else:
+                root = next_best_node
             make_decision_tree(root, ai_depth)
-
+            # Beginning of computing alg only
+            start_time = time.perf_counter()
             # Compute node values
-            MinMax.minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id, is_alfa_beta=True)
+            MinMax.minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id,
+                          is_alfa_beta=True if self.players[self.turn].AI_mode == "alfabeta" else False)  # True
             if len(root.children) > 0:
-                print("Next move options:")
-                for child in root.children:  # Print options
-                    print("Hole:", child.number, child.value)
+                if not testing:
+                    print("Next move options:")
+                    for child in root.children:  # Print options
+                        print("Hole:", child.number, child.value)
+                # next_best_node = max(root.children, key=lambda n: n.value).number
+                # next_best_move = next_best_node.number
                 next_best_move = max(root.children, key=lambda n: n.value).number
-                print("Next best move:", next_best_move)
-            pprint_tree(root)
+                if not testing:
+                    print("Next best move:", next_best_move)
+            # End of computing
+            end_time = time.perf_counter()
+            self.players[self.turn].computing_time += (end_time - start_time)
+            print("Time:", (end_time - start_time))
+            #pprint_tree(root)
 
         # Game finished
         self.finish_game()
         # Print board
         self.print_game_state("numbers")
         # Print leaderboard
-        self.calculate_result()
-        print("\nAnd the winner is . . .", end=" ")
-        if self.players[0].points == self.players[1].points:
-            print("nobody. It's a draw!\n")
-        else:
-            winner = max(self.players.values(), key=lambda p: p.points)
-            print("{} with {} points! Congrats!\n".format(winner.name, winner.points))
-        print("All moves:")
-        # Print all moves
-        pprint.pprint(self.moves_table)
+        results = self.calculate_result()
+        if not testing:
+            print("\nAnd the winner is . . .", end=" ")
+            if self.players[0].points == self.players[1].points:
+                print("nobody. It's a draw!\n")
+            else:
+                winner = max(self.players.values(), key=lambda p: p.points)
+                print("{} with {} points! Congrats!\n".format(winner.name, winner.points))
+            print("All moves:")
+            # Print all moves
+            pprint.pprint(self.moves_table)
+        if testing:
+            with open(f"Results/test_{ai_depth_level}_{first_bot_mode}_{second_bot_mode}.txt", "a") as f:
+                f.write(f"First move: {first_move} Depth: {ai_depth_level}\n{self.players[0]} vs {self.players[1]}\n")
+                f.write(f"First (0) time = {self.players[0].computing_time * 1000}ms\n"
+                        f"Second (1) time = {self.players[1].computing_time * 1000}ms")
+                f.write("\n")
+                f.write(f"First (0) moves = {len([move for move in self.moves_table if move['P'] == 0])}\n"
+                        f"Second (1) moves = {len([move for move in self.moves_table if move['P'] == 1])}")
+                # f.write("\n")
+                # f.write(pprint.pformat(self.moves_table))
+                f.write("\n")
+                f.write(pprint.pformat(results))
+                f.write("\n")
+                f.write("\n")
+                f.write("\n")
