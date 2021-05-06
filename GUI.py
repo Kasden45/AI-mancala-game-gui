@@ -325,7 +325,7 @@ def main_menu():
 def best_move(ai_depth, hole_number):
     root = GameNode(game_engine, hole_number, game_engine.turn)
     make_decision_tree(root, ai_depth)  # 2
-    minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id, is_alfa_beta=True)
+    minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id, is_alfa_beta=False) # True
     if len(root.children) > 0:
         print("Next move options:")
         for child in root.children:  # Print options
@@ -363,28 +363,18 @@ def game(ai_depth=2):
         mx, my = pygame.mouse.get_pos()
         if not finished:
             if not game_engine.is_finished():
-                if game_engine.players[game_engine.turn].type == "AI":
+                if game_engine.players[game_engine.turn].type == "AI":  # AI player
                     pygame.display.update()
-                    # --- AI
+                    # Get best move
                     hole_number = next_best_move
-                    # root = GameNode(game_engine, hole_number, game_engine.turn)
-                    # make_decision_tree(root, ai_depth)  # 2
-                    # MinMax.minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id, is_alfa_beta=True)
-                    # if len(root.children) > 0:
-                    #     print("Next move options:")
-                    #     for child in root.children:  # Print options
-                    #         print("Hole:", child.number, child.value)
-                    #     next_best_move = max(root.children, key=lambda n: n.value).number
-                    #     print("Next best move:", next_best_move)
-                    # --- /AI
-                    pygame.time.wait(1000)
+
+                    pygame.time.wait(3000)
                     if hole_number != 0:
                         move(game_engine.get_hole(hole_number, game_engine.turn))
                         print(f"{game_engine.players[game_engine.turn].name} picked hole no.{hole_number}!")
                     else:  # If first move then random
                         print("Random AI move")
                         hole_number = random.choice(list(game_engine.get_possible_moves(game_engine.turn)))
-                        # game_engine.move(game_engine.turn, hole_number)
                         move(game_engine.get_hole(hole_number, game_engine.turn))
                         print(f"{game_engine.players[game_engine.turn].name} picked hole no.{hole_number}!")
                     recoord_stones()
@@ -394,9 +384,9 @@ def game(ai_depth=2):
                         game_engine.change_turn()
                     game_engine.additional_move = False
 
-                    next_best_move = best_move(ai_depth, hole_number)
+                    next_best_move = best_move(ai_depth, hole_number)  # Calculate next best move
 
-                else:
+                else:  # Human player
                     for hole in game_engine.holes.values():
                         if check_hole_click(mx, my, hole):
                             if hole.number in game_engine.get_possible_moves(
