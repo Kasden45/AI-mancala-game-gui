@@ -2,6 +2,7 @@ import math
 
 
 def minmax(node, depth, alfa, beta, evaluation, end_game, maxing_player_id, is_max=True, is_alfa_beta=True):
+    print("player: ", maxing_player_id, "alfabeta? ", is_alfa_beta)
     """
     (* Initial call *)
     minmax(root, depth, −inf, +inf, evaluation, end_game, True)
