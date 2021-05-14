@@ -1,0 +1,22 @@
+First move: 3 Depth: 3
+Id: 0 -- Name: First (AI) -- Points: 26 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 22 alfabeta
+First (0) time = 17.940100000001348ms
+Second (1) time = 24.853699999998867ms
+First (0) moves = 41
+Second (1) moves = 41
+First (0) : Far from mancala [26] vs [22] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 26 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 22 alfabeta'}
+
+
+First move: 3 Depth: 3
+Id: 0 -- Name: First (AI) -- Points: 44 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 4 alfabeta
+First (0) time = 1.4557000000000597ms
+Second (1) time = 1.4433999999996505ms
+First (0) moves = 7
+Second (1) moves = 5
+First (0) : Steal [44] vs [4] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 44 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 4 alfabeta'}
+
+

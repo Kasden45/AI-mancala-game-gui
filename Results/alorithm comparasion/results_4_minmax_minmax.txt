@@ -1,0 +1,60 @@
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 23 minmax vs Id: 1 -- Name: Second (AI) -- Points: 25 minmax
+First (0) time = 16981.69379999998ms
+Second (1) time = 15107.704999999974ms
+First (0) moves = 23
+Second (1) moves = 28
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 25 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 23 minmax'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 17 minmax vs Id: 1 -- Name: Second (AI) -- Points: 31 minmax
+First (0) time = 11440.555099999969ms
+Second (1) time = 16572.67709999995ms
+First (0) moves = 16
+Second (1) moves = 24
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 31 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 17 minmax'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 32 minmax vs Id: 1 -- Name: Second (AI) -- Points: 16 minmax
+First (0) time = 27136.092300000142ms
+Second (1) time = 15246.319400000048ms
+First (0) moves = 32
+Second (1) moves = 20
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 32 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 16 minmax'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 16 minmax vs Id: 1 -- Name: Second (AI) -- Points: 32 minmax
+First (0) time = 30875.562700000017ms
+Second (1) time = 32308.606100000135ms
+First (0) moves = 19
+Second (1) moves = 19
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 32 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 16 minmax'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 26 minmax vs Id: 1 -- Name: Second (AI) -- Points: 22 minmax
+First (0) time = 14915.601900000098ms
+Second (1) time = 29938.555399999957ms
+First (0) moves = 17
+Second (1) moves = 20
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 26 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 22 minmax'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 34 minmax vs Id: 1 -- Name: Second (AI) -- Points: 14 minmax
+First (0) time = 27886.10480000011ms
+Second (1) time = 18813.19719999999ms
+First (0) moves = 26
+Second (1) moves = 13
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 34 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 14 minmax'}
+
+

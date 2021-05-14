@@ -1,0 +1,264 @@
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 12 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 36 alfabeta
+First (0) time = 1.5137000000322587ms
+Second (1) time = 3.101099999980761ms
+First (0) moves = 6
+Second (1) moves = 5
+First (0) : Steal [12] vs [36] Steal : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 36 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 12 alfabeta'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 35 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 13 alfabeta
+First (0) time = 2.144899999905192ms
+Second (1) time = 2.7681999999344953ms
+First (0) moves = 6
+Second (1) moves = 6
+First (0) : Steal [35] vs [13] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 35 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 13 alfabeta'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 44 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 4 alfabeta
+First (0) time = 3.629199999920729ms
+Second (1) time = 2.337899999986348ms
+First (0) moves = 7
+Second (1) moves = 5
+First (0) : Steal [44] vs [4] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 44 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 4 alfabeta'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 35 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 13 alfabeta
+First (0) time = 4.047199999945406ms
+Second (1) time = 3.4725000000435102ms
+First (0) moves = 6
+Second (1) moves = 7
+First (0) : Steal [35] vs [13] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 35 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 13 alfabeta'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 13 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 35 alfabeta
+First (0) time = 3.4973999999579064ms
+Second (1) time = 10.948899999846162ms
+First (0) moves = 9
+Second (1) moves = 12
+First (0) : Steal [13] vs [35] Steal : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 35 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 13 alfabeta'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 34 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 14 alfabeta
+First (0) time = 14.670700000067427ms
+Second (1) time = 6.534200000032797ms
+First (0) moves = 15
+Second (1) moves = 10
+First (0) : Steal [34] vs [14] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 34 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 14 alfabeta'}
+
+
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 15 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 33 alfabeta
+First (0) time = 14.679299999897921ms
+Second (1) time = 35.77930000028573ms
+First (0) moves = 10
+Second (1) moves = 21
+First (0) : Most points [15] vs [33] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 33 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 15 alfabeta'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 22 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 26 alfabeta
+First (0) time = 9.284999999977117ms
+Second (1) time = 25.32950000022538ms
+First (0) moves = 9
+Second (1) moves = 17
+First (0) : Most points [22] vs [26] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 26 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 22 alfabeta'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 29 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 19 alfabeta
+First (0) time = 32.00749999996333ms
+Second (1) time = 31.44960000008723ms
+First (0) moves = 18
+Second (1) moves = 12
+First (0) : Most points [29] vs [19] Most points : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 29 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 19 alfabeta'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 18 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 30 alfabeta
+First (0) time = 42.035699999814824ms
+Second (1) time = 70.10960000036448ms
+First (0) moves = 13
+Second (1) moves = 13
+First (0) : Most points [18] vs [30] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 30 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 18 alfabeta'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 15 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 33 alfabeta
+First (0) time = 30.05910000001677ms
+Second (1) time = 55.70229999989351ms
+First (0) moves = 15
+Second (1) moves = 19
+First (0) : Most points [15] vs [33] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 33 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 15 alfabeta'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 27 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 21 alfabeta
+First (0) time = 75.94520000009197ms
+Second (1) time = 52.067600000100356ms
+First (0) moves = 16
+Second (1) moves = 19
+First (0) : Most points [27] vs [21] Most points : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 27 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 21 alfabeta'}
+
+
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 23 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 25 alfabeta
+First (0) time = 91.41049999993811ms
+Second (1) time = 100.07190000010269ms
+First (0) moves = 23
+Second (1) moves = 28
+First (0) : Points diff [23] vs [25] Points diff : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 25 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 23 alfabeta'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 17 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 31 alfabeta
+First (0) time = 55.631399999583664ms
+Second (1) time = 94.79110000006585ms
+First (0) moves = 16
+Second (1) moves = 24
+First (0) : Points diff [17] vs [31] Points diff : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 31 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 17 alfabeta'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 32 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 16 alfabeta
+First (0) time = 183.9778000012302ms
+Second (1) time = 81.9874000001164ms
+First (0) moves = 32
+Second (1) moves = 20
+First (0) : Points diff [32] vs [16] Points diff : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 32 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 16 alfabeta'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 16 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 32 alfabeta
+First (0) time = 128.02749999991647ms
+Second (1) time = 154.186000000891ms
+First (0) moves = 19
+Second (1) moves = 19
+First (0) : Points diff [16] vs [32] Points diff : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 32 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 16 alfabeta'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 26 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 22 alfabeta
+First (0) time = 98.86189999997441ms
+Second (1) time = 123.33160000002863ms
+First (0) moves = 17
+Second (1) moves = 20
+First (0) : Points diff [26] vs [22] Points diff : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 26 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 22 alfabeta'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 34 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 14 alfabeta
+First (0) time = 175.55179999953907ms
+Second (1) time = 86.47139999970932ms
+First (0) moves = 26
+Second (1) moves = 13
+First (0) : Points diff [34] vs [14] Points diff : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 34 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 14 alfabeta'}
+
+
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 32 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 16 alfabeta
+First (0) time = 83.2821999999851ms
+Second (1) time = 83.35750000037478ms
+First (0) moves = 29
+Second (1) moves = 27
+First (0) : Far from mancala [32] vs [16] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 32 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 16 alfabeta'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 15 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 33 alfabeta
+First (0) time = 92.66700000034689ms
+Second (1) time = 80.46639999997751ms
+First (0) moves = 30
+Second (1) moves = 31
+First (0) : Far from mancala [15] vs [33] Far from mancala : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 33 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 15 alfabeta'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 30 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 18 alfabeta
+First (0) time = 78.61069999944448ms
+Second (1) time = 98.63360000099419ms
+First (0) moves = 32
+Second (1) moves = 33
+First (0) : Far from mancala [30] vs [18] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 30 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 18 alfabeta'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 26 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 22 alfabeta
+First (0) time = 136.302599999226ms
+Second (1) time = 73.96890000018175ms
+First (0) moves = 29
+Second (1) moves = 26
+First (0) : Far from mancala [26] vs [22] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 26 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 22 alfabeta'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 27 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 21 alfabeta
+First (0) time = 63.31179999961023ms
+Second (1) time = 117.69049999929848ms
+First (0) moves = 31
+Second (1) moves = 28
+First (0) : Far from mancala [27] vs [21] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 27 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 21 alfabeta'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 28 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 20 alfabeta
+First (0) time = 59.872000000041226ms
+Second (1) time = 86.54059999935271ms
+First (0) moves = 32
+Second (1) moves = 27
+First (0) : Far from mancala [28] vs [20] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 28 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 20 alfabeta'}
+
+

@@ -1,0 +1,160 @@
+First move: 1 Depth: 3
+First (0) : Steal [12] vs [36] Steal : Second (1)
+
+
+
+First move: 1 Depth: 3
+First (0) : Steal [12] vs [36] Steal : Second (1)
+
+
+
+First move: 6 Depth: 3
+First (0) : Steal [39] vs [9] Most points : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Steal [19] vs [29] Most points : Second (1)
+
+
+
+First move: 5 Depth: 3
+First (0) : Steal [13] vs [35] Points diff : Second (1)
+
+
+
+First move: 1 Depth: 3
+First (0) : Steal [5] vs [43] Points diff : Second (1)
+
+
+
+First move: 3 Depth: 3
+First (0) : Steal [25] vs [23] Far from mancala : Second (1)
+
+
+
+First move: 1 Depth: 3
+First (0) : Steal [24] vs [24] Far from mancala : Second (1)
+
+
+
+First move: 2 Depth: 3
+First (0) : Most points [38] vs [10] Steal : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Most points [42] vs [6] Steal : Second (1)
+
+
+
+First move: 6 Depth: 3
+First (0) : Most points [27] vs [21] Most points : Second (1)
+
+
+
+First move: 2 Depth: 3
+First (0) : Most points [22] vs [26] Most points : Second (1)
+
+
+
+First move: 5 Depth: 3
+First (0) : Most points [16] vs [32] Points diff : Second (1)
+
+
+
+First move: 1 Depth: 3
+First (0) : Most points [19] vs [29] Points diff : Second (1)
+
+
+
+First move: 3 Depth: 3
+First (0) : Most points [36] vs [12] Far from mancala : Second (1)
+
+
+
+First move: 6 Depth: 3
+First (0) : Most points [38] vs [10] Far from mancala : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Points diff [42] vs [6] Steal : Second (1)
+
+
+
+First move: 2 Depth: 3
+First (0) : Points diff [42] vs [6] Steal : Second (1)
+
+
+
+First move: 6 Depth: 3
+First (0) : Points diff [29] vs [19] Most points : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Points diff [10] vs [38] Most points : Second (1)
+
+
+
+First move: 5 Depth: 3
+First (0) : Points diff [13] vs [35] Points diff : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Points diff [15] vs [33] Points diff : Second (1)
+
+
+
+First move: 2 Depth: 3
+First (0) : Points diff [43] vs [5] Far from mancala : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Points diff [32] vs [16] Far from mancala : Second (1)
+
+
+
+First move: 5 Depth: 3
+First (0) : Far from mancala [11] vs [37] Steal : Second (1)
+
+
+
+First move: 6 Depth: 3
+First (0) : Far from mancala [22] vs [26] Steal : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Far from mancala [9] vs [39] Most points : Second (1)
+
+
+
+First move: 5 Depth: 3
+First (0) : Far from mancala [15] vs [33] Most points : Second (1)
+
+
+
+First move: 2 Depth: 3
+First (0) : Far from mancala [11] vs [37] Points diff : Second (1)
+
+
+
+First move: 4 Depth: 3
+First (0) : Far from mancala [10] vs [38] Points diff : Second (1)
+
+
+
+First move: 1 Depth: 3
+First (0) : Far from mancala [24] vs [24] Far from mancala : Second (1)
+
+
+
+First move: 3 Depth: 3
+First (0) : Far from mancala [26] vs [22] Far from mancala : Second (1)
+
+
+

@@ -1,0 +1,264 @@
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 12 minmax vs Id: 1 -- Name: Second (AI) -- Points: 36 minmax
+First (0) time = 8.8279ms
+Second (1) time = 27.254899999974214ms
+First (0) moves = 6
+Second (1) moves = 5
+First (0) : Steal [12] vs [36] Steal : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 36 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 12 minmax'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 35 minmax vs Id: 1 -- Name: Second (AI) -- Points: 13 minmax
+First (0) time = 21.726399999977275ms
+Second (1) time = 19.575800000012578ms
+First (0) moves = 6
+Second (1) moves = 6
+First (0) : Steal [35] vs [13] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 35 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 13 minmax'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 44 minmax vs Id: 1 -- Name: Second (AI) -- Points: 4 minmax
+First (0) time = 27.72149999998419ms
+Second (1) time = 17.30469999995421ms
+First (0) moves = 7
+Second (1) moves = 5
+First (0) : Steal [44] vs [4] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 44 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 4 minmax'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 35 minmax vs Id: 1 -- Name: Second (AI) -- Points: 13 minmax
+First (0) time = 29.488900000103513ms
+Second (1) time = 76.25449999989087ms
+First (0) moves = 6
+Second (1) moves = 7
+First (0) : Steal [35] vs [13] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 35 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 13 minmax'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 13 minmax vs Id: 1 -- Name: Second (AI) -- Points: 35 minmax
+First (0) time = 34.90369999997256ms
+Second (1) time = 166.21829999991178ms
+First (0) moves = 9
+Second (1) moves = 12
+First (0) : Steal [13] vs [35] Steal : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 35 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 13 minmax'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 34 minmax vs Id: 1 -- Name: Second (AI) -- Points: 14 minmax
+First (0) time = 79.27720000009231ms
+Second (1) time = 142.767499999934ms
+First (0) moves = 15
+Second (1) moves = 10
+First (0) : Steal [34] vs [14] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 34 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 14 minmax'}
+
+
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 15 minmax vs Id: 1 -- Name: Second (AI) -- Points: 33 minmax
+First (0) time = 92.84050000002253ms
+Second (1) time = 241.06440000008433ms
+First (0) moves = 10
+Second (1) moves = 21
+First (0) : Most points [15] vs [33] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 33 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 15 minmax'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 22 minmax vs Id: 1 -- Name: Second (AI) -- Points: 26 minmax
+First (0) time = 61.22329999993781ms
+Second (1) time = 272.5787000000537ms
+First (0) moves = 9
+Second (1) moves = 17
+First (0) : Most points [22] vs [26] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 26 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 22 minmax'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 29 minmax vs Id: 1 -- Name: Second (AI) -- Points: 19 minmax
+First (0) time = 232.22379999987197ms
+Second (1) time = 380.3151000000753ms
+First (0) moves = 18
+Second (1) moves = 12
+First (0) : Most points [29] vs [19] Most points : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 29 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 19 minmax'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 18 minmax vs Id: 1 -- Name: Second (AI) -- Points: 30 minmax
+First (0) time = 322.31570000016063ms
+Second (1) time = 645.2977000000146ms
+First (0) moves = 13
+Second (1) moves = 13
+First (0) : Most points [18] vs [30] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 30 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 18 minmax'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 15 minmax vs Id: 1 -- Name: Second (AI) -- Points: 33 minmax
+First (0) time = 179.47060000005877ms
+Second (1) time = 539.9229000000219ms
+First (0) moves = 15
+Second (1) moves = 19
+First (0) : Most points [15] vs [33] Most points : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 33 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 15 minmax'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 27 minmax vs Id: 1 -- Name: Second (AI) -- Points: 21 minmax
+First (0) time = 522.162999999864ms
+Second (1) time = 321.8520000002627ms
+First (0) moves = 16
+Second (1) moves = 19
+First (0) : Most points [27] vs [21] Most points : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 27 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 21 minmax'}
+
+
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 23 minmax vs Id: 1 -- Name: Second (AI) -- Points: 25 minmax
+First (0) time = 419.59730000019135ms
+Second (1) time = 378.11950000002525ms
+First (0) moves = 23
+Second (1) moves = 28
+First (0) : Points diff [23] vs [25] Points diff : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 25 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 23 minmax'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 17 minmax vs Id: 1 -- Name: Second (AI) -- Points: 31 minmax
+First (0) time = 265.68319999978485ms
+Second (1) time = 395.20229999993717ms
+First (0) moves = 16
+Second (1) moves = 24
+First (0) : Points diff [17] vs [31] Points diff : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 31 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 17 minmax'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 32 minmax vs Id: 1 -- Name: Second (AI) -- Points: 16 minmax
+First (0) time = 645.1934999997775ms
+Second (1) time = 367.94110000016644ms
+First (0) moves = 32
+Second (1) moves = 20
+First (0) : Points diff [32] vs [16] Points diff : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 32 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 16 minmax'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 16 minmax vs Id: 1 -- Name: Second (AI) -- Points: 32 minmax
+First (0) time = 793.630500000063ms
+Second (1) time = 751.8136000003324ms
+First (0) moves = 19
+Second (1) moves = 19
+First (0) : Points diff [16] vs [32] Points diff : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 32 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 16 minmax'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 26 minmax vs Id: 1 -- Name: Second (AI) -- Points: 22 minmax
+First (0) time = 344.1102000002729ms
+Second (1) time = 679.8817999999756ms
+First (0) moves = 17
+Second (1) moves = 20
+First (0) : Points diff [26] vs [22] Points diff : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 26 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 22 minmax'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 34 minmax vs Id: 1 -- Name: Second (AI) -- Points: 14 minmax
+First (0) time = 631.4952000003586ms
+Second (1) time = 440.59589999972104ms
+First (0) moves = 26
+Second (1) moves = 13
+First (0) : Points diff [34] vs [14] Points diff : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 34 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 14 minmax'}
+
+
+First move: 1 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 32 minmax vs Id: 1 -- Name: Second (AI) -- Points: 16 minmax
+First (0) time = 460.0343999998131ms
+Second (1) time = 399.5208999999704ms
+First (0) moves = 29
+Second (1) moves = 27
+First (0) : Far from mancala [32] vs [16] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 32 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 16 minmax'}
+
+
+First move: 2 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 15 minmax vs Id: 1 -- Name: Second (AI) -- Points: 33 minmax
+First (0) time = 986.1078999992969ms
+Second (1) time = 714.9821000004977ms
+First (0) moves = 30
+Second (1) moves = 31
+First (0) : Far from mancala [15] vs [33] Far from mancala : Second (1)
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 33 minmax',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 15 minmax'}
+
+
+First move: 3 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 30 minmax vs Id: 1 -- Name: Second (AI) -- Points: 18 minmax
+First (0) time = 466.35200000014265ms
+Second (1) time = 752.9721999997037ms
+First (0) moves = 32
+Second (1) moves = 33
+First (0) : Far from mancala [30] vs [18] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 30 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 18 minmax'}
+
+
+First move: 4 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 26 minmax vs Id: 1 -- Name: Second (AI) -- Points: 22 minmax
+First (0) time = 1095.9082000001672ms
+Second (1) time = 542.0667999997022ms
+First (0) moves = 29
+Second (1) moves = 26
+First (0) : Far from mancala [26] vs [22] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 26 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 22 minmax'}
+
+
+First move: 5 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 27 minmax vs Id: 1 -- Name: Second (AI) -- Points: 21 minmax
+First (0) time = 416.6614999999183ms
+Second (1) time = 570.6248999995296ms
+First (0) moves = 31
+Second (1) moves = 28
+First (0) : Far from mancala [27] vs [21] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 27 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 21 minmax'}
+
+
+First move: 6 Depth: 4
+Id: 0 -- Name: First (AI) -- Points: 28 minmax vs Id: 1 -- Name: Second (AI) -- Points: 20 minmax
+First (0) time = 581.2671999999566ms
+Second (1) time = 589.9248999996871ms
+First (0) moves = 32
+Second (1) moves = 27
+First (0) : Far from mancala [28] vs [20] Far from mancala : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 28 minmax',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 20 minmax'}
+
+

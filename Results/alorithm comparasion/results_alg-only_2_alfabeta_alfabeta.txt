@@ -1,0 +1,60 @@
+First move: 1 Depth: 2
+Id: 0 -- Name: First (AI) -- Points: 19 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 29 alfabeta
+First (0) time = 8.734099999999634ms
+Second (1) time = 14.913600000000082ms
+First (0) moves = 18
+Second (1) moves = 29
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 29 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 19 alfabeta'}
+
+
+First move: 2 Depth: 2
+Id: 0 -- Name: First (AI) -- Points: 20 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 28 alfabeta
+First (0) time = 15.615000000000823ms
+Second (1) time = 69.8830999999982ms
+First (0) moves = 20
+Second (1) moves = 29
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 28 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 20 alfabeta'}
+
+
+First move: 3 Depth: 2
+Id: 0 -- Name: First (AI) -- Points: 32 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 16 alfabeta
+First (0) time = 12.806999999999569ms
+Second (1) time = 11.762199999999723ms
+First (0) moves = 21
+Second (1) moves = 22
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 32 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 16 alfabeta'}
+
+
+First move: 4 Depth: 2
+Id: 0 -- Name: First (AI) -- Points: 29 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 19 alfabeta
+First (0) time = 26.33150000000084ms
+Second (1) time = 19.375400000000376ms
+First (0) moves = 31
+Second (1) moves = 24
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 29 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 19 alfabeta'}
+
+
+First move: 5 Depth: 2
+Id: 0 -- Name: First (AI) -- Points: 10 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 38 alfabeta
+First (0) time = 14.188599999999774ms
+Second (1) time = 29.412500000000286ms
+First (0) moves = 12
+Second (1) moves = 15
+{1: '1. Id: 1 -- Name: Second (AI) -- Points: 38 alfabeta',
+ 2: '2. Id: 0 -- Name: First (AI) -- Points: 10 alfabeta'}
+
+
+First move: 6 Depth: 2
+Id: 0 -- Name: First (AI) -- Points: 36 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 12 alfabeta
+First (0) time = 83.60570000000145ms
+Second (1) time = 16.480000000001382ms
+First (0) moves = 34
+Second (1) moves = 11
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 36 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 12 alfabeta'}
+
+
