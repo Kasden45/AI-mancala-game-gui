@@ -325,7 +325,7 @@ def main_menu():
 def best_move(ai_depth, hole_number):
     root = GameNode(game_engine, hole_number, game_engine.turn)
     make_decision_tree(root, ai_depth)  # 2
-    minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id, is_alfa_beta=False) # True
+    minmax(root, ai_depth, -math.inf, math.inf, heuristic_points_diff, is_finished, root.player_id, is_alfa_beta=False) # True
     if len(root.children) > 0:
         print("Next move options:")
         for child in root.children:  # Print options

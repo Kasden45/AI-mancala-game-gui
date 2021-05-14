@@ -2,7 +2,6 @@ import math
 
 
 def minmax(node, depth, alfa, beta, evaluation, end_game, maxing_player_id, is_max=True, is_alfa_beta=True):
-    print("player: ", maxing_player_id, "alfabeta? ", is_alfa_beta)
     """
     (* Initial call *)
     minmax(root, depth, −inf, +inf, evaluation, end_game, True)
@@ -17,6 +16,7 @@ def minmax(node, depth, alfa, beta, evaluation, end_game, maxing_player_id, is_m
     :param is_alfa_beta:
     :return:
     """
+    #print("player: ", maxing_player_id, "alfabeta? ", is_alfa_beta)
     if depth == 0 or end_game(node) == True or len(node.children) == 0:
         node.value = evaluation(node, maxing_player_id)
         return node.value

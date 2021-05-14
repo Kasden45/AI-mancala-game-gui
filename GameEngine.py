@@ -6,7 +6,8 @@ from typing import List, Tuple
 import time
 
 import MinMax
-from GameNode import GameNode,make_decision_tree, pprint_tree, mancala_function, is_finished
+from GameNode import GameNode,make_decision_tree, pprint_tree, heuristic_points_diff, is_finished, heuristic_steal,\
+    heuristic_mix, heuristic_stones_far_from_mancala, heuristic_most_points
 from Player import Player
 from Components import Stone, Hole, Mancala
 from itertools import cycle
@@ -29,7 +30,8 @@ class Game:
         self.additional_move = False
         self.total_holes = 14
         self.moves_table = []  # (id, move)
-
+        self.was_a_steal = False
+        self.steal_amount = 0
     def get_possible_moves(self, player_id):  # Should be used in move(), can check instance instead of number
         return list([hole.number for _, hole in self.holes.items() if hole.player.id == player_id and len(hole.stones) > 0 and hole.number != 7])
 
@@ -112,6 +114,7 @@ class Game:
 
     def steal_stones(self, hole, opposite_hole, player_id):
         mancala = self.get_mancala(player_id)
+        self.players[player_id].stolen_stones += len(opposite_hole.stones)
         mancala.stones.extend(hole.stones)
         mancala.stones.extend(opposite_hole.stones)
         for stone in opposite_hole.stones:
@@ -125,7 +128,7 @@ class Game:
         else:
             return player_id
 
-    def get_players(self, how_many=2, first_bot="minmax", second_bot="minmax", testing=False):
+    def get_players(self, how_many=2, first_bot="minmax", second_bot="minmax", testing=False, heur1=heuristic_points_diff, heur2=heuristic_points_diff):
         player1 = Player(0)
         player2 = Player(1)
         if how_many == 2:
@@ -138,8 +141,22 @@ class Game:
                 player1.type = "Human" if type1 == "YES" else "AI"
                 if player1.type == "AI":
                     player1.name += " (AI)"
-                    player2.AI_mode = first_bot
                     player1.AI_mode = first_bot
+                heur1 = input("Please choose your heuristic: "
+                              "\n 1 - 'Points difference'"
+                              "\n 2 - 'Steals'"
+                              "\n 3 - 'Stones far from Mancala'"
+                              "\n 4 - 'Max points'")
+                if heur1 == "1":
+                    player1.heuristic = heuristic_points_diff
+                elif heur1 == "2":
+                    player1.heuristic = heuristic_steal
+                elif heur1 == "3":
+                    player1.heuristic = heuristic_stones_far_from_mancala
+                elif heur1 == "4":
+                    player1.heuristic = heuristic_most_points
+
+
 
                 print("2nd player!")
                 name2 = input("Please type your name: ")
@@ -150,17 +167,32 @@ class Game:
                 if player2.type == "AI":
                     player2.name += " (AI)"
                     player2.AI_mode = second_bot
-                    player1.AI_mode = second_bot
+                heur2 = input("Please choose your heuristic: "
+                              "\n 1 - 'Points difference'"
+                              "\n 2 - 'Steals'"
+                              "\n 3 - 'Stones far from Mancala'"
+                              "\n 4 - 'Max points'")
+                if heur2 == "1":
+                    player2.heuristic = heuristic_points_diff
+                elif heur2 == "2":
+                    player2.heuristic = heuristic_steal
+                elif heur2 == "3":
+                    player2.heuristic = heuristic_stones_far_from_mancala
+                elif heur2 == "4":
+                    player2.heuristic = heuristic_most_points
+
             if testing:
                 player1.name = "First"
                 player1.type = "AI"
                 player1.AI_mode = first_bot
                 player1.name += " (AI)"
+                player1.heuristic = heur1
 
                 player2.name = "Second"
                 player2.type = "AI"
                 player2.AI_mode = second_bot
                 player2.name += " (AI)"
+                player2.heuristic = heur2
                 print("TESTING")
 
         print("Players created!")
@@ -248,7 +280,7 @@ class Game:
         return len([True for hole in self.holes.values() if
                     hole.player.id == self.turn and not isinstance(hole, Mancala) and len(hole.stones) > 0]) == 0
 
-    def start_game(self, testing=False, first_move=0, ai_depth_level=2, mode=None):
+    def start_game(self, testing=False, first_move=0, ai_depth_level=2, mode=None, heuristic1=heuristic_points_diff, heuristic2 = heuristic_points_diff, directory="res"):
         if mode is None:
             first_bot_mode = "minmax"
             second_bot_mode = "minmax"
@@ -256,9 +288,9 @@ class Game:
             first_bot_mode = mode
             second_bot_mode = mode
         if testing:
-            players = self.get_players(2, first_bot=first_bot_mode, second_bot=second_bot_mode, testing=testing)
+            players = self.get_players(2, first_bot=first_bot_mode, second_bot=second_bot_mode, testing=testing, heur1=heuristic1, heur2=heuristic2)
         else:
-            players = self.get_players(2)
+            players = self.get_players(2, first_bot=first_bot_mode, second_bot=second_bot_mode)
         self.initialize_game(players)
         self.set_turn(0)
         next_best_move = first_move  # If 0 then first move is random if done by AI
@@ -311,7 +343,7 @@ class Game:
             # Beginning of computing alg only
             start_time = time.perf_counter()
             # Compute node values
-            MinMax.minmax(root, ai_depth, -math.inf, math.inf, mancala_function, is_finished, root.player_id,
+            MinMax.minmax(root, ai_depth, -math.inf, math.inf, self.players[root.player_id].heuristic, is_finished, root.player_id,
                           is_alfa_beta=True if self.players[self.turn].AI_mode == "alfabeta" else False)  # True
             if len(root.children) > 0:
                 if not testing:
@@ -327,7 +359,7 @@ class Game:
             end_time = time.perf_counter()
             self.players[self.turn].computing_time += (end_time - start_time)
             print("Time:", (end_time - start_time))
-            #pprint_tree(root)
+            # pprint_tree(root)
 
         # Game finished
         self.finish_game()
@@ -346,17 +378,26 @@ class Game:
             # Print all moves
             pprint.pprint(self.moves_table)
         if testing:
-            with open(f"Results/test_{ai_depth_level}_{first_bot_mode}_{second_bot_mode}.txt", "a") as f:
-                f.write(f"First move: {first_move} Depth: {ai_depth_level}\n{self.players[0]} vs {self.players[1]}\n")
-                f.write(f"First (0) time = {self.players[0].computing_time * 1000}ms\n"
-                        f"Second (1) time = {self.players[1].computing_time * 1000}ms")
-                f.write("\n")
-                f.write(f"First (0) moves = {len([move for move in self.moves_table if move['P'] == 0])}\n"
-                        f"Second (1) moves = {len([move for move in self.moves_table if move['P'] == 1])}")
+            with open(f"Results/{directory}/result_{ai_depth_level}_{first_bot_mode}_{second_bot_mode}_heuristic.txt", "a") as f:
+
+                if directory != "tournament":
+                    f.write(
+                        f"First move: {first_move} Depth: {ai_depth_level}\n{self.players[0]} vs {self.players[1]}\n")
+                    f.write(f"First (0) time = {self.players[0].computing_time * 1000}ms\n"
+                            f"Second (1) time = {self.players[1].computing_time * 1000}ms")
+                    f.write("\n")
+                    f.write(f"First (0) moves = {len([move for move in self.moves_table if move['P'] == 0])}\n"
+                            f"Second (1) moves = {len([move for move in self.moves_table if move['P'] == 1])}")
+                else:
+                    f.write(
+                        f"First move: {first_move} Depth: {ai_depth_level}")
+                f.write(f"\nFirst (0) : {self.players[0].heuristic_name()} [{self.players[0].points}] vs [{self.players[1].points}] "
+                        f"{self.players[1].heuristic_name()} : Second (1)")
                 # f.write("\n")
                 # f.write(pprint.pformat(self.moves_table))
                 f.write("\n")
-                f.write(pprint.pformat(results))
+                if directory != "tournament":
+                    f.write(pprint.pformat(results))
                 f.write("\n")
                 f.write("\n")
                 f.write("\n")

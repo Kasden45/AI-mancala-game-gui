@@ -1,6 +1,6 @@
 from typing import List
 
-from Player import Player
+# from Player import Player
 
 
 class Stone:
@@ -15,7 +15,7 @@ class Hole:
     def __init__(self, number, stones, player):
         self.stones: List[Stone] = stones
         self.number: int = number
-        self.player: Player = player
+        self.player = player
 
     def add_stone(self, stone):
         self.stones.append(stone)
