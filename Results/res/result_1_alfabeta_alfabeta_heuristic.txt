@@ -1,0 +1,33 @@
+First move: 3 Depth: 1
+Id: 0 -- Name: First (AI) -- Points: 44 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 4 alfabeta
+First (0) time = 0.1007000000003977ms
+Second (1) time = 0.09649999999927772ms
+First (0) moves = 7
+Second (1) moves = 5
+First (0) : Steal [44] vs [4] Steal : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 44 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 4 alfabeta'}
+
+
+First move: 3 Depth: 1
+Id: 0 -- Name: First (AI) -- Points: 25 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 23 alfabeta
+First (0) time = 3.353699999999793ms
+Second (1) time = 0.6395000000000151ms
+First (0) moves = 19
+Second (1) moves = 13
+First (0) : Most points [25] vs [23] Most points : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 25 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 23 alfabeta'}
+
+
+First move: 3 Depth: 1
+Id: 0 -- Name: First (AI) -- Points: 25 alfabeta vs Id: 1 -- Name: Second (AI) -- Points: 23 alfabeta
+First (0) time = 2.1210000000000395ms
+Second (1) time = 0.5346000000001627ms
+First (0) moves = 19
+Second (1) moves = 13
+First (0) : Most points [25] vs [23] Most points : Second (1)
+{1: '1. Id: 0 -- Name: First (AI) -- Points: 25 alfabeta',
+ 2: '2. Id: 1 -- Name: Second (AI) -- Points: 23 alfabeta'}
+
+

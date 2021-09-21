@@ -111,6 +111,8 @@ if __name__ == '__main__':
     #                 game = Game()
     #                 game.start_game(first_move=first_move, testing=True, ai_depth_level=level, mode="alfabeta", heuristic1=heuristic1, heuristic2=heuristic2, directory="tournament")
 
-    game = Game()
-    game.start_game(first_move=3, testing=True, ai_depth_level=3, mode="alfabeta", heuristic1=heuristic_steal, heuristic2=heuristic_steal)
+    # game = Game()
+    # game.start_game(first_move=3, testing=True, ai_depth_level=1, mode="alfabeta", heuristic1=heuristic_steal, heuristic2=heuristic_steal)
 
+    game = Game()
+    game.start_game(first_move=3, testing=True, ai_depth_level=1, mode="alfabeta", heuristic1=heuristic_most_points, heuristic2=heuristic_most_points)
